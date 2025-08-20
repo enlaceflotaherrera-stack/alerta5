@@ -1,0 +1,21 @@
+
+services:
+  - type: web
+    name: bomberos-alerta
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: MONGO_URI
+        value: ""   # Pega aquí tu URI de MongoDB Atlas (o crea la variable en el panel)
+      - key: JWT_SECRET
+        value: ""   # Escribe una palabra secreta (ej. supersecreto123)
+      - key: VAPID_PUBLIC
+        value: ""   # Opcional: para notificaciones push
+      - key: VAPID_PRIVATE
+        value: ""   # Opcional: para notificaciones push
